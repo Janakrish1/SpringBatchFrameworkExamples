@@ -14,8 +14,7 @@ public class TaskletStep implements Tasklet {
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
 		try {
 			File file = new File("src/main/resources/users.csv");
-//			if(file.delete()) {
-			if(file.getName().equals("JANA")) {
+			if(file.delete()) {
 				System.out.println("\n*********File-" + file.getName() + " is deleted Successfully using Tasklet step!*********\n");
 			}
 			else {

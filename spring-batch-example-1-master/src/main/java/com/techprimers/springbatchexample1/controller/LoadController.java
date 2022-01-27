@@ -24,17 +24,17 @@ public class LoadController {
 
     @Autowired
     Map<String, Job> jobMap = new HashMap<String, Job>();
-//    Job job;
 
     @GetMapping(value = "/start/{jobName}")
     public BatchStatus load(@PathVariable String jobName) throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
     	
+    	Job job = jobMap.get(jobName);
     	JobParameters jobParameters = new JobParametersBuilder()
 							    			.addString("csvFilePath", "src/main/resources/users.csv")
 							    			.addString("csvOutput", "src/main/resources/output.csv")
 							    			.toJobParameters();
     	
-        JobExecution jobExecution = jobLauncher.run(jobMap.get(jobName), jobParameters);
+        JobExecution jobExecution = jobLauncher.run(job, jobParameters);
         
         System.out.println("JobExecution: " + jobExecution.getStatus());
 
