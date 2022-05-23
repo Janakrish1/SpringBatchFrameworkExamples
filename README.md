@@ -69,7 +69,7 @@ into small jobs and steps to be executed on it. This can be used to build robust
   - The annotations for this interface are 
     - BeforeStep
     - AfterStep
-## Retry (RetryOperations inteface)
+## Retry (RetryOperations interface)
   - To make more robust and less prone to failure – Like While() loop
   - RetryContext – Store the data which may be used to retry later
   - If retry is exhausted this can pass control to RecoveryCallback
